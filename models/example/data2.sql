@@ -10,4 +10,4 @@ WITH base AS (
 
 SELECT *,
     (social * 0.25 + economic * 0.25 + political * 0.30 + conflict * 0.20) AS risk_index
-FROM base;
+FROM base
