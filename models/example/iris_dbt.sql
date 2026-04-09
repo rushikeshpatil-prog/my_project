@@ -1,7 +1,7 @@
 WITH base AS (
 
     SELECT *
-    FROM {{ ref('"DEMO"."PUBLIC"."TRIAL_SHEETS_IRIS_IRIS"') }}
+    FROM {{ ref('"Demo"."PUBLIC"."IRIS_SQL_OUTPUT"') }}
 
 ),
 
