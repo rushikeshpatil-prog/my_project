@@ -1,4 +1,3 @@
-
 version: 2
 
 models:
@@ -19,3 +18,10 @@ models:
         data_tests:
           - unique
           - not_null
+
+sources:
+  - name: iris_source
+    database: DEMO
+    schema: PUBLIC
+    tables:
+      - name: IRIS_SQL_OUTPUT
