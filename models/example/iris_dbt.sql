@@ -1,7 +1,7 @@
 WITH base AS (
 
     SELECT *
-    FROM {{ ref('"DEMO"."PUBLIC"."IRIS_SQL_OUTPUT"') }}
+    FROM {{ source('iris_source', 'IRIS_SQL_OUTPUT') }}
 
 ),
 
@@ -9,14 +9,14 @@ features AS (
 
     SELECT *,
         
-        -- size classification
+        -- petal size category
         CASE 
             WHEN petal_area < 1 THEN 'Small'
             WHEN petal_area BETWEEN 1 AND 3 THEN 'Medium'
             ELSE 'Large'
         END AS petal_size,
 
-        -- shape ratio
+        -- ratios
         (sepal_length / sepal_width) AS sepal_ratio,
         (petal_length / petal_width) AS petal_ratio
 
@@ -28,7 +28,7 @@ final AS (
 
     SELECT *,
         
-        -- species grouping logic (analytical insight)
+        -- predicted grouping logic
         CASE 
             WHEN petal_area < 1 THEN 'Likely Setosa'
             WHEN petal_area < 4 THEN 'Likely Versicolor'
