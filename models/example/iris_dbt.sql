@@ -1,7 +1,7 @@
 WITH base AS (
 
     SELECT *
-    FROM {{ ref('iris_sql_model') }}
+    FROM {{ ref('"DEMO"."PUBLIC"."TRIAL_SHEETS_IRIS_IRIS"') }}
 
 ),
 
